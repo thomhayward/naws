@@ -74,7 +74,7 @@ fn main() {
         }
 
         // match the required list
-        if !required.is_empty() && !word.iter().any(|c| required.contains(c)) {
+        if !required.is_empty() && !required.iter().all(|c| word.contains(c)) {
             continue;
         }
 
