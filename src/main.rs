@@ -13,7 +13,7 @@ struct Args {
 const ALPHA: &str = "abcdefghijklmnopqrstuvwxyz";
 
 fn parse_filter(filter: &str, global: &HashSet<char>) -> HashSet<char> {
-    let spec: Vec<_> = filter.split(|c| c == '/').collect();
+    let spec: Vec<_> = filter.split(|c| c == '^').collect();
     let mut search: HashSet<char> = HashSet::new();
     if !spec.is_empty() {
         let include = spec[0];
