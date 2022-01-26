@@ -63,6 +63,7 @@ fn main() {
             continue;
         }
 
+        // run each filter for each letter
         if !word
             .iter()
             .zip(&filters)
@@ -72,10 +73,12 @@ fn main() {
             continue;
         }
 
+        // match the required list
         if !required.is_empty() && !word.iter().any(|c| required.contains(c)) {
             continue;
         }
 
+        // eliminate words with repeated letters
         if arguments.no_repeats {
             let unique: HashSet<_> = word.iter().collect();
             if unique.len() < word.len() {
