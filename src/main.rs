@@ -17,7 +17,7 @@ fn parse_filter(filter: &str, global: &HashSet<char>) -> HashSet<char> {
     let mut search: HashSet<char> = HashSet::new();
     if !spec.is_empty() {
         let include = spec[0];
-        if include == "." {
+        if include == "." || include == "" {
             for c in global.iter() {
                 search.insert(*c);
             }
