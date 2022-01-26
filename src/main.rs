@@ -7,6 +7,8 @@ struct Args {
     global: Option<String>,
     #[clap(short, long)]
     require: Option<String>,
+    #[clap(short, long)]
+    no_repeats: bool,
     filters: Vec<String>,
 }
 
@@ -72,6 +74,13 @@ fn main() {
 
         if !required.is_empty() && !word.iter().any(|c| required.contains(c)) {
             continue;
+        }
+
+        if arguments.no_repeats {
+            let unique: HashSet<_> = word.iter().collect();
+            if unique.len() < word.len() {
+                continue;
+            }
         }
 
         println!("{}", word.iter().collect::<String>());
