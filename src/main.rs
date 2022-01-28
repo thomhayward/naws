@@ -55,7 +55,7 @@ fn main() {
         .require
         .map_or(HashSet::new(), |value| value.chars().collect());
 
-    let raw_wordlist = include_str!("wordlist");
+    let raw_wordlist = include_str!("wordlist.in");
     for line in raw_wordlist.lines() {
         let word = line.trim().chars().collect::<Vec<_>>();
 
